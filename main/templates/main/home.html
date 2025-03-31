@@ -1,0 +1,92 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile.name }} - {{ profile.title }}</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="profile-section">
+                <div class="profile-image">
+                    {% if profile.profile_image %}
+                        <img src="{{ profile.profile_image.url }}" alt="{{ profile.name }}">
+                    {% else %}
+                        <img src="{% static 'main/images/default-profile.jpg' %}" alt="{{ profile.name }}">
+                    {% endif %}
+                </div>
+                <h1>{{ profile.name }}</h1>
+                <h2>{{ profile.title }}</h2>
+                <p class="about">{{ profile.about }}</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="skills-section">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    {% for skill in skills %}
+                    <div class="skill-card">
+                        <div class="skill-info">
+                            <span class="skill-name">{{ skill.name }}</span>
+                            <span class="skill-percentage">{{ skill.percentage }}%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: {{ skill.percentage }}%"></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="projects-section">
+                <h2>Recent Projects</h2>
+                <div class="projects-grid">
+                    {% for project in projects %}
+                    <div class="project-card">
+                        {% if project.image %}
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image">
+                        {% endif %}
+                        <h3>{{ project.title }}</h3>
+                        <p>{{ project.description }}</p>
+                        <div class="project-links">
+                            {% if project.live_link %}
+                                <a href="{{ project.live_link }}" class="btn" target="_blank">View Live</a>
+                            {% endif %}
+                            {% if project.github_link %}
+                                <a href="{{ project.github_link }}" class="btn" target="_blank">GitHub</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="project-card">
+                        <h3>Project 1</h3>
+                        <p>Project description will go here.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn">View</a>
+                            <a href="#" class="btn">GitHub</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Project 2</h3>
+                        <p>Project description will go here.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn">View</a>
+                            <a href="#" class="btn">GitHub</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+{% endblock %} 

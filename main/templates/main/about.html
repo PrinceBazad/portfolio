@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="about-page">
+    <h1>About Me</h1>
+    <div class="about-content">
+        {% if about_contents %}
+            {% for content in about_contents %}
+                <div class="about-card">
+                    {% if content.image %}
+                        <div class="about-image">
+                            <img src="{{ content.image.url }}" alt="{{ content.title }}">
+                        </div>
+                    {% endif %}
+                    <div class="about-text">
+                        <h2>{{ content.title }}</h2>
+                        {{ content.content|linebreaks }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="about-card">
+                <div class="about-image">
+                    <img src="{% static 'main/images/default-about.jpg' %}" alt="About Me">
+                </div>
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>I am a passionate Full Stack Developer with expertise in building modern web applications. With a strong foundation in both front-end and back-end development, I create seamless and user-friendly solutions that solve real-world problems.</p>
+                    
+                    <p>My journey in web development started with a curiosity to build things that make a difference. Over the years, I've worked with various technologies and frameworks, always staying up-to-date with the latest industry trends and best practices.</p>
+                    
+                    <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge through technical blog posts.</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %} 
