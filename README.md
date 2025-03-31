@@ -25,7 +25,7 @@ A modern and responsive portfolio website built with Django.
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/PrinceBazad/portfolio.git
 cd portfolio
 ```
 
@@ -68,4 +68,4 @@ Access the admin panel at http://127.0.0.1:8000/admin/ to manage:
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details.
