@@ -32,9 +32,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*', '.railway.app']
 
-# CSRF settings
-CSRF_TRUSTED_ORIGINS = ['https://*.railway.app', 'https://zestful-reverence-production.up.railway.app']
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -52,7 +49,6 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
