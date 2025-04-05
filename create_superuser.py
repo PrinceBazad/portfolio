@@ -1,57 +1,47 @@
 import os
 import django
+from django.contrib.auth.models import User, Group, Permission
+from django.contrib.contenttypes.models import ContentType
 
+# Set up Django environment
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio.settings')
 django.setup()
 
-from django.contrib.auth.models import User
+def create_superuser():
+    try:
+        # Delete existing superuser if exists
+        User.objects.filter(username='princebazad').delete()
+        
+        # Create new superuser
+        user = User.objects.create_superuser(
+            username='princebazad',
+            email='princebazad3@gmail.com',
+            password='Prince@123'
+        )
+        
+        # Get or create admin group
+        admin_group, created = Group.objects.get_or_create(name='admin')
+        
+        # Add all permissions to admin group
+        for perm in Permission.objects.all():
+            admin_group.permissions.add(perm)
+        
+        # Add user to admin group
+        user.groups.add(admin_group)
+        
+        # Set user permissions
+        user.is_staff = True
+        user.is_superuser = True
+        user.is_active = True
+        user.save()
+        
+        print("Superuser created successfully!")
+        print("Username: princebazad")
+        print("Email: princebazad3@gmail.com")
+        print("Password: Prince@123")
+        
+    except Exception as e:
+        print(f"Error creating superuser: {str(e)}")
 
-# Delete existing superuser
-User.objects.filter(username='princebazad').delete()
-
-# Create new superuser
-user = User.objects.create_superuser(
-    username='princebazad',
-    email='princebazad3@gmail.com',
-    password='Prince@123',
-    is_staff=True,
-    is_superuser=True,
-    is_active=True
-)
-
-# Verify the user was created correctly
-print(f"Superuser created: {user.username}")
-print(f"Email: {user.email}")
-print(f"Is staff: {user.is_staff}")
-print(f"Is superuser: {user.is_superuser}")
-print(f"Is active: {user.is_active}")
-
-# Set session data
-from django.contrib.sessions.models import Session
-from django.utils import timezone
-
-session = Session.objects.create(
-    session_key='test_session',
-    session_data='test_data',
-    expire_date=timezone.now() + timezone.timedelta(days=1)
-)
-print(f"Session created: {session.session_key}")
-
-# Set user permissions
-from django.contrib.auth.models import Permission
-from django.contrib.contenttypes.models import ContentType
-
-content_type = ContentType.objects.get_for_model(User)
-permission = Permission.objects.get(
-    codename='add_user',
-    content_type=content_type,
-)
-user.user_permissions.add(permission)
-print(f"Permission added: {permission.codename}")
-
-# Set user groups
-from django.contrib.auth.models import Group
-
-group = Group.objects.get(name='admin')
-user.groups.add(group)
-print(f"Group added: {group.name}") 
+if __name__ == '__main__':
+    create_superuser() 

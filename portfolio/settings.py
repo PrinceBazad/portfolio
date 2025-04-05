@@ -35,9 +35,9 @@ DJANGO_SUPERUSER_IS_STAFF = True
 DJANGO_SUPERUSER_IS_SUPERUSER = True
 
 # Admin settings
-ADMIN_SITE_HEADER = 'Portfolio Admin'
-ADMIN_SITE_TITLE = 'Portfolio Admin'
-ADMIN_INDEX_TITLE = 'Welcome to Portfolio Admin'
+ADMIN_SITE_HEADER = "Portfolio Admin"
+ADMIN_SITE_TITLE = "Portfolio Admin Portal"
+ADMIN_INDEX_TITLE = "Welcome to Portfolio Admin"
 
 # Authentication settings
 AUTHENTICATION_BACKENDS = [
@@ -47,14 +47,14 @@ AUTHENTICATION_BACKENDS = [
 # Session settings
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 1209600  # 2 weeks in seconds
-SESSION_COOKIE_SECURE = False
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = 'Lax'
 
 # CSRF settings
 CSRF_TRUSTED_ORIGINS = ['https://*.railway.app', 'https://zestful-reverence-production.up.railway.app']
-CSRF_COOKIE_SECURE = False
-SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = False
 CSRF_COOKIE_DOMAIN = None
 CSRF_USE_SESSIONS = False
@@ -63,8 +63,6 @@ CSRF_COOKIE_HTTPONLY = False
 # Security settings
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
