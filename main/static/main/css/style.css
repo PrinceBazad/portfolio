@@ -264,84 +264,6 @@ h2 {
     background: #2980b9;
 }
 
-/* Contact Section */
-.contact-page {
-    padding: 8rem 0 4rem;
-    animation: fadeIn 1s ease-out;
-}
-
-.contact-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.contact-info {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.contact-info h3 {
-    color: #2c3e50;
-    margin-bottom: 1rem;
-}
-
-.contact-info p {
-    color: #666;
-    margin-bottom: 0.5rem;
-}
-
-.contact-form {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-    font-weight: 500;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #3498db;
-}
-
-.btn {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.btn:hover {
-    background: #2980b9;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
@@ -396,10 +318,6 @@ h2 {
 
     .nav-link:hover {
         background: rgba(255, 255, 255, 0.1);
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
     }
 
     .header {
@@ -572,31 +490,6 @@ h2 {
 .project-card p {
     color: #666;
     margin-bottom: 1rem;
-}
-
-/* Contact Form */
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-}
-
-@media (max-width: 768px) {
-    .about-image {
-        height: 200px;
-    }
-
-    .project-image {
-        height: 150px;
-    }
-
-    .contact-content {
-        padding: 0 1rem;
-    }
 }
 
 /* Footer */
