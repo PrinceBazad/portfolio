@@ -35,4 +35,16 @@ session = Session.objects.create(
     session_data='test_data',
     expire_date=timezone.now() + timezone.timedelta(days=1)
 )
-print(f"Session created: {session.session_key}") 
+print(f"Session created: {session.session_key}")
+
+# Set user permissions
+from django.contrib.auth.models import Permission
+from django.contrib.contenttypes.models import ContentType
+
+content_type = ContentType.objects.get_for_model(User)
+permission = Permission.objects.get(
+    codename='add_user',
+    content_type=content_type,
+)
+user.user_permissions.add(permission)
+print(f"Permission added: {permission.codename}") 

@@ -60,6 +60,12 @@ CSRF_COOKIE_DOMAIN = None
 CSRF_USE_SESSIONS = False
 CSRF_COOKIE_HTTPONLY = False
 
+# Security settings
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
