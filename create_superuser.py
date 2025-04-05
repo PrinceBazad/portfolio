@@ -47,4 +47,11 @@ permission = Permission.objects.get(
     content_type=content_type,
 )
 user.user_permissions.add(permission)
-print(f"Permission added: {permission.codename}") 
+print(f"Permission added: {permission.codename}")
+
+# Set user groups
+from django.contrib.auth.models import Group
+
+group = Group.objects.get(name='admin')
+user.groups.add(group)
+print(f"Group added: {group.name}") 
