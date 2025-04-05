@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import Profile, Skill, Project, ContactInfo, AboutContent
+from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
@@ -29,3 +31,12 @@ class ContactInfoAdmin(admin.ModelAdmin):
 class AboutContentAdmin(admin.ModelAdmin):
     list_display = ('title', 'updated_at')
     search_fields = ('title', 'content')
+
+class CustomUserAdmin(UserAdmin):
+    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'is_superuser')
+    list_filter = ('is_staff', 'is_superuser', 'is_active', 'groups')
+    search_fields = ('username', 'first_name', 'last_name', 'email')
+    ordering = ('username',)
+
+admin.site.unregister(User)
+admin.site.register(User, CustomUserAdmin)

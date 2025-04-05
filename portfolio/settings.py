@@ -34,6 +34,11 @@ DJANGO_SUPERUSER_PASSWORD = os.environ.get('DJANGO_SUPERUSER_PASSWORD', 'your_pa
 DJANGO_SUPERUSER_IS_STAFF = True
 DJANGO_SUPERUSER_IS_SUPERUSER = True
 
+# Admin settings
+ADMIN_SITE_HEADER = 'Portfolio Admin'
+ADMIN_SITE_TITLE = 'Portfolio Admin'
+ADMIN_INDEX_TITLE = 'Welcome to Portfolio Admin'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
