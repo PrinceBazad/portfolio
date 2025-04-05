@@ -34,11 +34,11 @@ ALLOWED_HOSTS = ['*', '.railway.app']
 
 # CSRF settings
 CSRF_TRUSTED_ORIGINS = ['https://*.railway.app', 'https://zestful-reverence-production.up.railway.app']
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
 SECURE_SSL_REDIRECT = False
 CSRF_COOKIE_DOMAIN = None
-CSRF_USE_SESSIONS = True
+CSRF_USE_SESSIONS = False
 CSRF_COOKIE_HTTPONLY = False
 
 # Application definition
