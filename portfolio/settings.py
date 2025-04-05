@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-default-secret-key-here')
 # Superuser settings
 DJANGO_SUPERUSER_USERNAME = os.environ.get('DJANGO_SUPERUSER_USERNAME', 'princebazad')
 DJANGO_SUPERUSER_EMAIL = os.environ.get('DJANGO_SUPERUSER_EMAIL', 'princebazad3@gmail.com')
-DJANGO_SUPERUSER_PASSWORD = os.environ.get('DJANGO_SUPERUSER_PASSWORD', 'your_password')
+DJANGO_SUPERUSER_PASSWORD = os.environ.get('DJANGO_SUPERUSER_PASSWORD', 'Prince@123')
 DJANGO_SUPERUSER_IS_STAFF = True
 DJANGO_SUPERUSER_IS_SUPERUSER = True
 
@@ -39,10 +39,17 @@ ADMIN_SITE_HEADER = 'Portfolio Admin'
 ADMIN_SITE_TITLE = 'Portfolio Admin'
 ADMIN_INDEX_TITLE = 'Welcome to Portfolio Admin'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Authentication settings
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
 
-ALLOWED_HOSTS = ['*', '.railway.app']
+# Session settings
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_AGE = 1209600  # 2 weeks in seconds
+SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = 'Lax'
 
 # CSRF settings
 CSRF_TRUSTED_ORIGINS = ['https://*.railway.app', 'https://zestful-reverence-production.up.railway.app']
@@ -52,6 +59,11 @@ SECURE_SSL_REDIRECT = False
 CSRF_COOKIE_DOMAIN = None
 CSRF_USE_SESSIONS = False
 CSRF_COOKIE_HTTPONLY = False
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = ['*', '.railway.app']
 
 # Application definition
 
