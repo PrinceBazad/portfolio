@@ -37,6 +37,9 @@ CSRF_TRUSTED_ORIGINS = ['https://*.railway.app', 'https://zestful-reverence-prod
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = True
+CSRF_COOKIE_DOMAIN = '.railway.app'
+CSRF_USE_SESSIONS = True
+CSRF_COOKIE_HTTPONLY = False
 
 # Application definition
 
