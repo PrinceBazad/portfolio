@@ -32,6 +32,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*', '.railway.app']
 
+# CSRF settings
+CSRF_TRUSTED_ORIGINS = ['https://*.railway.app', 'https://zestful-reverence-production.up.railway.app']
 
 # Application definition
 
