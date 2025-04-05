@@ -16,7 +16,10 @@ def create_superuser():
         user = User.objects.create_superuser(
             username='princebazad',
             email='princebazad3@gmail.com',
-            password='Prince@123'
+            password='Prince@123',
+            is_staff=True,
+            is_superuser=True,
+            is_active=True
         )
         
         # Get or create admin group
@@ -29,16 +32,16 @@ def create_superuser():
         # Add user to admin group
         user.groups.add(admin_group)
         
-        # Set user permissions
-        user.is_staff = True
-        user.is_superuser = True
-        user.is_active = True
+        # Save user
         user.save()
         
         print("Superuser created successfully!")
         print("Username: princebazad")
         print("Email: princebazad3@gmail.com")
         print("Password: Prince@123")
+        print("Is staff:", user.is_staff)
+        print("Is superuser:", user.is_superuser)
+        print("Is active:", user.is_active)
         
     except Exception as e:
         print(f"Error creating superuser: {str(e)}")

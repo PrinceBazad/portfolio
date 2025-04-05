@@ -48,13 +48,13 @@ AUTHENTICATION_BACKENDS = [
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 1209600  # 2 weeks in seconds
 SESSION_SAVE_EVERY_REQUEST = True
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False  # Changed to False for development
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = 'Lax'
 
 # CSRF settings
 CSRF_TRUSTED_ORIGINS = ['https://*.railway.app', 'https://zestful-reverence-production.up.railway.app']
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False  # Changed to False for development
 SECURE_SSL_REDIRECT = False
 CSRF_COOKIE_DOMAIN = None
 CSRF_USE_SESSIONS = False
@@ -63,6 +63,8 @@ CSRF_COOKIE_HTTPONLY = False
 # Security settings
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False  # Changed to False for development
+CSRF_COOKIE_SECURE = False  # Changed to False for development
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
